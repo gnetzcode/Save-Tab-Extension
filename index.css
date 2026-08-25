@@ -6,64 +6,175 @@
     --text-main: #eeeeee;
     --text-placeholder: #6b8f81;
     --text-link: #8fd9c4;
-    --delete-btn: rgba(255,90,90, *);
+    --delete-btn: #ff8080;
 }
 
+
+
 body {
-    margin: 0;
-    padding: 10px;
-    font-family: Arial, Helvetica, sans-serif;
-    min-width: 400px;
+    width: 400px; 
     background: var(--background-dark);
+    border: 1px solid rgba(76, 245, 195, 0.15);
+    border-radius: 12px;
+    padding: 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    font-family: 'Inter', sans-serif;
+    color: var(--text-main);
 }
 
 input {
-    width: 100%;
-    padding: 10px;
-    box-sizing: border-box;
-    border: 1px solid #5f9341;
-    margin-bottom: 4px;
+    height: 38px;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(76, 245, 195, 0.25);
+    padding: 0 12px;
+    display: flex;
+    align-items: center;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12.5px;
+    color: #eeeeee;
+    outline: none;
+    transition: border-color 0.15s ease, background 0.15s ease;
+}
+
+input::placeholder {
+    color: var(--text-placeholder);
+}
+
+input:focus {
+    border-color: rgba(76, 245, 195, 0.5);
+    background: rgba(255, 255, 255, 0.06);
+}
+
+.buttons {
+    display: flex;
+    gap: 8px;
 }
 
 button {
-    background: #5f9341;
-    color: white;
-    padding: 10px 20px;
-    border: 1px solid #5f9341;
-    font-weight: bold;
-    border-radius: 5px;
-    transition: 300ms
+    flex: 1;
+    height: 36px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 600;
+    font-size: 11.5px;
+    letter-spacing: 0.02em;
+    cursor: pointer;
+    border: none;
+    transition: transform 0.1s ease, box-shadow 0.15s ease,   opacity 0.15s ease;
 }
 
 button:hover {
-    background: white;
-    color: #5f9341;
+    transform: translateY(-1px);
+}
+
+button:active {
+    transform: translateY(0);
+    opacity: 0.85;
+}
+
+#input-btn {
+    background: linear-gradient(135deg, #4cf5c3, #2bb894);
+    color: #06110d;
+    box-shadow: 0 4px 16px rgba(76, 245, 195, 0.25);
+}
+
+#input-btn:hover {
+    box-shadow: 0 6px 20px rgba(76, 245, 195, 0.35);
+}
+
+#tab-btn {
+    background: rgba(76, 245, 195, 0.08);
+    color: #7ffcd4;
+    border: 1px solid rgba(76, 245, 195, 0.3);
+}
+
+#tab-btn:hover {
+    background: rgba(76, 245, 195, 0.14);
 }
 
 #delete-btn {
-    background: white;
-    color: #B00000;
-    border: 1px solid #B00000;
-    transition: 300ms
+    width: 100%;
+    height: 32px;
+    padding: 10px;
+    background: transparent;
+    border: 1px solid rgba(255, 90, 90, 0.35);
+    border-radius: 8px;
+    color: var(--delete-btn);
+    font-family: 'Inter', sans-serif;
+    font-size: 11.5px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.15s ease, border-color 0.15s ease;
 }
 
 #delete-btn:hover {
-    background: #B00000;
-    color: white;
+    background: rgba(255, 90, 90, 0.08);
+    border-color: rgba(255, 90, 90, 0.5);
+}
+
+.divider {
+    height: 1px;
+    background: rgba(76, 245, 195, 0.12);
+    margin: 2px 0;
 }
 
 ul {
-    margin-top: 20px;
     list-style: none;
-    padding-left: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    max-height: 120px;
+    overflow-y: auto;
+    padding: 5px;
 }
 
-li {
+#list {
     margin-top: 5px;
+    display: flex;
+    align-items: center;
 }
 
-a {
-    color: #5f9341;
+#list::before {
+    content: "";
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: #4cf5c3;
+    flex-shrink: 0;
+    margin-right: 8px;
 }
 
+#link {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10.5px;
+    color: #8fd9c4;
+    text-decoration: none;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    transition: color 0.15s ease;
+}
 
+#link:hover {
+    color: #b8f0e0;
+    text-decoration: underline;
+}
+
+ul::-webkit-scrollbar {
+  width: 4px;
+}
+
+ul::-webkit-scrollbar-thumb {
+  background: rgba(76, 245, 195, 0.2);
+  border-radius: 2px;
+}
+
+ul::-webkit-scrollbar-track {
+  background: transparent;
+}
