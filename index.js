@@ -5,6 +5,7 @@ const ulEl = document.getElementById("ul-el")
 const deleteBtn = document.getElementById("delete-btn")
 const leadsFromLocalStorage = JSON.parse( localStorage.getItem("myLeads") )
 const tabBtn = document.getElementById("tab-btn")
+const counterEl = document.getElementById("counter-el")
 
 if (leadsFromLocalStorage) {
     myLeads = leadsFromLocalStorage
@@ -31,6 +32,9 @@ function render(leads) {
         `
     }
     ulEl.innerHTML = listItems
+    
+    counterEl.textContent = ""
+    counterEl.textContent += myLeads.length
 }
 
 deleteBtn.addEventListener("dblclick", function() {
